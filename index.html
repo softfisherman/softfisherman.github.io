@@ -45,6 +45,12 @@
                 section.style.display = section.id.toLowerCase().includes(input) ? 'block' : 'none';
             });
         }
+
+        function trackClick(id) {
+            let counter = document.getElementById(`counter-${id}`);
+            let count = parseInt(counter.innerText) || 0;
+            counter.innerText = count + 1;
+        }
     </script>
 </head>
 <body>
@@ -73,45 +79,28 @@
         <h2>A 开头的优惠码</h2>
         <table>
             <tr>
-                <th>商家名字</th>
+                <th>优惠码商家</th>
                 <th>优惠码</th>
                 <th>优惠明细</th>
                 <th>有效期</th>
+                <th>优惠码使用人数</th>
                 <th>立刻访问官网</th>
             </tr>
             <tr>
-                <td>Amazon</td>
+                <td><!-- 这里可以添加 Amazon 的超链接 --><a href="#">Amazon</a></td>
                 <td>AMZ20</td>
                 <td>全场20%折扣</td>
                 <td>2025-12-31</td>
-                <td><a class="visit-link" href="https://amazon.com?aff=12345" target="_blank">访问官网</a></td>
+                <td id="counter-amazon">0</td>
+                <td><a class="visit-link" href="https://amazon.com?aff=12345" target="_blank" onclick="trackClick('amazon')">访问官网</a></td>
             </tr>
             <tr>
-                <td>AliExpress</td>
+                <td><!-- 这里可以添加 AliExpress 的超链接 --><a href="#">AliExpress</a></td>
                 <td>ALI10</td>
                 <td>满$100减$10</td>
                 <td>2025-06-30</td>
-                <td><a class="visit-link" href="https://aliexpress.com?aff=67890" target="_blank">访问官网</a></td>
-            </tr>
-        </table>
-    </section>
-
-    <section id="B" class="offer-section">
-        <h2>B 开头的优惠码</h2>
-        <table>
-            <tr>
-                <th>商家名字</th>
-                <th>优惠码</th>
-                <th>优惠明细</th>
-                <th>有效期</th>
-                <th>立刻访问官网</th>
-            </tr>
-            <tr>
-                <td>Best Buy</td>
-                <td>BEST50</td>
-                <td>订单满$500立减$50</td>
-                <td>2025-07-15</td>
-                <td><a class="visit-link" href="https://bestbuy.com?aff=13579" target="_blank">访问官网</a></td>
+                <td id="counter-aliexpress">0</td>
+                <td><a class="visit-link" href="https://aliexpress.com?aff=67890" target="_blank" onclick="trackClick('aliexpress')">访问官网</a></td>
             </tr>
         </table>
     </section>
@@ -129,6 +118,9 @@
 
         <h3>4. 如何获取最新优惠码？</h3>
         <p>请收藏本页，定期查阅最新的优惠信息。</p>
+
+        <h3>5. 本页面是否使用了广告联盟链接？</h3>
+        <p>是的，本页面部分链接使用了广告联盟（Affiliate）链接，这意味着当您通过本页面的链接进行购买或注册时，我可能会获得一小部分佣金。但请放心，这不会影响您的优惠，您依然可以享受商家提供的最大折扣，甚至可能获得额外的独家优惠。使用这些链接支持我们继续为您搜集最新优惠信息，感谢您的支持！</p>
     </section>
 
 </body>
